@@ -1,38 +1,66 @@
-<h1>Burgers!</h1>
+<br><br>
+<!-- Setup the index.handlebars to have the template that Handlebars can render onto. -->
+<div class="container">
+  <div class="jumbotron">
+    <h1 id="">Burger Logger</h1>
+    <p id="">Keep track of the burgers you devour...</p>
+    <br><br>
+    <br><br>
+    <br><br>
 
-<h2>Available Burgers!</h2>
-
-<ul>
-  {{#each burgers}}
-    {{#unless hungry}}
-      {{> burgers/burger-block eat=true}}
-    {{/unless}}
-  {{/each}}
-</ul>
-
-<h2>Burgers eaten!</h2>
-
-<ul>
-  {{#each burgers}}
-    {{#if hungry}}
-      {{> burgers/burger-block eat=false}}
-    {{/if}}
-  {{/each}}
-</ul>
-
-<h2>Add a Burger</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="bu">Burger Name:</label>
-    <input type="text" id="bu" name="name">
+    <h5 id="">Add a New Burger</h5>
+    <form class="create-form">
+      <div class="form-group">
+        <!-- <label for="newburger" id="color-override">New Burger:</label> -->
+        <input type="text" id="newburger" name="burger">
+        <!-- Create a button in index.handlebars that will submit the user input into the database. -->
+        <button type="submit" class="btn btn-outline-warning" id="addaburger"><span class="fas fa-hamburger"
+            style="color:#755215;"></span></button>
+      </div>
+    </form>
   </div>
 
-  <div class="form-group">
-    <label for="hungry">Hungry?</label><br>
-    <input type="radio" name="hungry" value="1" checked> Hungry!<br>
-    <input type="radio" name="hungry" value="0"> Eat
+  <div class="row">
+    <!-- Added Burgers -->
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading" id="lefthead"><strong> Burgers</strong>
+          <h6>Press the bite icon next to the burger you want to devour!</h6>
+        </div>
+        <div class="panel-body">
+          <ul>
+            {{#each burgers}}
+            {{#unless devoured}}
+            <span><strong>{{this.burger_name}} # {{this.id}}</strong></span>
+            <button type="button" class="eataburger btn btn-outline-warning" id="eatbutton" data-id="{{this.id}}"
+              data-newDevoured="{{devour}}"><span class="fas fa-cookie-bite" style="color:#755215;"></span></button>
+            <hr>
+            {{/unless}}
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Devoured Burgers -->
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading" id="righthead"><strong>Devoured Burgers</strong>
+          <h6>Press the trash icon next to the burger you want to delete!</h6>
+        </div>
+        <div class="panel-body">
+          <ul>
+            {{#each burgers}}
+            {{#if devoured}}
+            <span><strong>{{this.burger_name}} #{{this.id}} -</strong></span>
+            <button type="button" class="deleteburger btn btn-outline-dark" id="deletebutton" data-id="{{this.id}}"
+              data-newDevoured="{{devour}}"><span class="fas fa-trash "></span></button>
+            <hr>
+            {{/if}}
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <button type="submit">Add Burger</button>
-</form>
+</div>
