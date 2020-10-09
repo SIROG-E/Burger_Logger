@@ -1,5 +1,5 @@
 {
-  "name": "Node_Express_Handlebars",
+  "name": "Burger_Logger",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -9,16 +9,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SIROG-E/Node_Express_Handlebars.git"
+    "url": "git+https://github.com/SIROG-E/Burger_Logger.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/SIROG-E/Node_Express_Handlebars/issues"
+    "url": "https://github.com/SIROG-E/Burger_Logger/issues"
   },
-  "homepage": "https://github.com/SIROG-E/Node_Express_Handlebars#readme",
+  "homepage": "https://github.com/SIROG-E/Burger_Logger#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.1.0",
     "mysql": "^2.18.1"
