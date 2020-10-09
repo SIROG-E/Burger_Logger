@@ -1,7 +1,7 @@
+// Dependencies
 var express = require("express");
-
+// Create the router for the app
 var router = express.Router();
-
 // Import the model burger.js) to use its database functions.
 var burger = require("../models/burger.js");
 
@@ -9,13 +9,14 @@ var burger = require("../models/burger.js");
 router.get("/", function(req, res) {
   burger.all(function(data) {
     var hbsObject = {
-      burger: data
+      burgers: data
     };
     console.log(hbsObject);
     res.render("index", hbsObject);
   });
 });
 
+// Add new burger to the db.
 router.post("/api/burgers", function(req, res) {
   burger.create([
     "burger_name", "devoured"
@@ -27,6 +28,7 @@ router.post("/api/burgers", function(req, res) {
   });
 });
 
+// Set burger devoured status to true.
 router.put("/api/burgers/:id", function(req, res) {
   var condition = "id = " + req.params.id;
 
@@ -44,6 +46,7 @@ router.put("/api/burgers/:id", function(req, res) {
   });
 });
 
+// Delete burger from db.
 router.delete("/api/burgers/:id", function(req, res) {
   var condition = "id = " + req.params.id;
 
