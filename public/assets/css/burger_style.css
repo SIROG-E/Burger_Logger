@@ -1,0 +1,36 @@
+.jumbotron {
+    background-image: url("../img/EatingABurger.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+#title {
+    font-family: 'Vast Shadow', cursive;
+    text-align: center;
+    color: #d23201;
+    font-size: 4.5em;
+    margin-top: 0.1%;
+}
+
+#logger {
+    text-align: center;
+    font-size: 2em;
+    color:black;
+}
+#new-burger {
+    color:white;
+}
+
+#right {
+    font-size: 2em;
+    color:#000000;
+    
+}
+#left {
+    font-size: 2em;
+    color:#000000;   
+}
+
+#eat-btn, #del-btn {
+    float: right;
+}
