@@ -8,19 +8,22 @@
     <br><br>
     <br><br>
     <br><br>
+    <div class="container addburger" >
+      <h3>Add a New Burger</h3>
+      <h5>Click on the <i class="fas fa-hamburger" style="color:rgb(170, 106, 50)"></i> to add the burger that you want to
+        devour!</h5>
+      <form class="create-form">
+        <div class="form-group">
+          <label for="newburger">I'm craving:</label>
+          <input type="text" id="newburger" name="burger">
+          <!-- Create a button in index.handlebars that will submit the user input into the database. -->
+          <button type="submit" class="btn btn-light" id="addaburger"><span class="fas fa-hamburger"
+              style="color:#b87f54;"></span></button>
+        </div>
+      </form>
 
-    <h3 id="new-burger">Add a New Burger</h3>
-    <h5>Press the <i class="fas fa-hamburger" style="color:white"></i> to add the burger that you want to
-      devour!</h5>
-    <form class="create-form">
-      <div class="form-group">
-        <label for="newburger">New Burger:</label>
-        <input type="text" id="newburger" name="burger">
-        <!-- Create a button in index.handlebars that will submit the user input into the database. -->
-        <button type="submit" class="btn btn-warning" id="addaburger"><span class="fas fa-hamburger"
-            style="color:#755215;"></span></button>
-      </div>
-    </form>
+    </div>
+
   </div>
 
   <div class="row">
@@ -28,16 +31,17 @@
     <div class="col-sm-6">
       <div class="panel panel-success">
         <div class="panel-heading" id="left"><strong>Burgers I'm Craving</strong>
-          <h4>Press the <i class="fas fa-cookie-bite" style="color:#755215;"></i> next to the burger you want to devour!
+          <h4>Click on the <i class="fas fa-cookie-bite" style="color:#b87f54;"></i> next to the burger you want to
+            devour!
           </h4>
         </div>
         <div class="panel-body">
           <ul>
             {{#each burgers}}
             {{#unless devoured}}
-            <span><strong> {{this.id}}) {{this.burger_name}}</strong></span>
+            <span><strong> # {{this.id}} {{this.burger_name}}</strong></span>
             <button type="button" class="eat-burger btn btn-outline-warning" id="eat-btn" data-id="{{this.id}}"
-              data-newDevoured="{{devour}}"><span class="fas fa-cookie-bite" style="color:#755215;"></span></button>
+              data-newDevoured="{{devour}}"><span class="fas fa-cookie-bite" style="color:#b87f54;"></span></button>
             <hr>
             {{/unless}}
             {{/each}}
@@ -49,13 +53,14 @@
     <div class="col-sm-6">
       <div class="panel panel-danger">
         <div class="panel-heading" id="right"><strong>Devoured Burgers</strong>
-          <h4>Press the <i class="fas fa-trash" style="color:brown;"></i> next to the burger you want to delete!</h4>
+          <h4>Click on the <i class="fas fa-trash" style="color: #bb321f;"></i> next to the burger you want to delete!
+          </h4>
         </div>
         <div class="panel-body">
           <ul>
             {{#each burgers}}
             {{#if devoured}}
-            <span><strong> {{this.id}}) {{this.burger_name}}</strong></span>
+            <span><strong> # {{this.id}} {{this.burger_name}}</strong></span>
             <button type="button" class="delete-burger btn btn-outline-danger" id="del-btn" data-id="{{this.id}}"
               data-newDevoured="{{devour}}"><span class="fas fa-trash "></span></button>
             <hr>

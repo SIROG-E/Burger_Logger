@@ -1,7 +1,8 @@
 .jumbotron {
     background-image: url("../img/EatingABurger.jpg");
+    background-size: auto 100%;
     background-repeat: no-repeat;
-    background-size: cover;
+    margin-top: 30px;
   }
 
 #title {
@@ -16,9 +17,14 @@
     text-align: center;
     font-size: 2em;
     color:black;
+    font-weight: bold;
 }
-#new-burger {
-    color:white;
+.addburger{
+    text-align: center;
+    bottom: 0;
+    color: white;
+    margin-bottom: -3em;
+
 }
 
 #right {

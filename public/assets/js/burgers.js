@@ -13,6 +13,12 @@ $(function() {
     $.ajax("/api/burgers", {
         type: "POST",
         data: newBurger
+      //   validate: async (input) => {
+      //     if (input == "") {
+      //         return "Please enter a burger name.";
+      //     }
+      //     return true;
+      // }
     }).then(function() {
         console.log("Added a new burger");
         // Reload the page to get the updated burger list.
